@@ -1,0 +1,9 @@
+<app-widget-area
+  *ngIf="expenses"
+  [currency]="currency"
+  [expenses]="expenses"
+></app-widget-area>
+<mat-divider></mat-divider>
+<app-bar *ngIf="expenses" [currency]="currency" [expenses]="expenses"></app-bar>
+<mat-divider></mat-divider>
+<app-donut *ngIf="expenses" [expenses]="expenses"></app-donut>
