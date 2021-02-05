@@ -9,6 +9,11 @@ on:
       - master
   workflow_dispatch:
 
+env:
+  AZURE_WEBAPP_NAME: JWAS1 # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: "./dist/dashboard" # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: "14.x" # set this to the node version to use
+  
 jobs:
   build-and-deploy:
     runs-on: windows-latest
@@ -19,13 +24,12 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: '14.x'
+        node-version: ${{ env.NODE_VERSION }}
 
     - name: npm install, build, and test
       run: |
         npm install
         npm run build --if-present
-        npm run test --if-present
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
@@ -33,4 +37,4 @@ jobs:
         app-name: 'JWAS1'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_fde5c90013a745f397442f3af534f9e8 }}
-        package: .
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
