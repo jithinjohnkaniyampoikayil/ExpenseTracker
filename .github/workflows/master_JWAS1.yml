@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - JWAS1
+name: Build and deploy ExpenseTracker
 
 on:
   push:
@@ -11,30 +11,30 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: JWAS1 # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: "./dist/dashboard" # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: "./dist/ExpenseTracker" # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: "14.x" # set this to the node version to use
-  
+
 jobs:
   build-and-deploy:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@master
+      - uses: actions/checkout@master
 
-    - name: Set up Node.js version
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ env.NODE_VERSION }}
+      - name: Set up Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
-    - name: npm install, build, and test
-      run: |
-        npm install
-        npm run build --if-present
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
 
-    - name: 'Deploy to Azure Web App'
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'JWAS1'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_fde5c90013a745f397442f3af534f9e8 }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+      - name: "Deploy to Azure Web App"
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: "JWAS1"
+          slot-name: "production"
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_fde5c90013a745f397442f3af534f9e8 }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
