@@ -10,7 +10,7 @@ highcharts 8.1.0 <br />
 username : admin<br />
 password : admin<br />
 
-https://mango-beach-0e833b103.azurestaticapps.net/
+https://jwas1.azurewebsites.net/expenditure
 
 ## Output Folder
 
