@@ -1,27 +1,18 @@
-# Dashboard
+# ExpenseTracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+Angular 9.1.3 <br />
+flex-layout 9.0.0-beta.29 <br />
+material 9.2.2 <br />
+highcharts 8.1.0 <br />
 
-## Development server
+## Demo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+https://mango-beach-0e833b103.azurestaticapps.net/
 
-## Code scaffolding
+## Output Folder
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+out put is generated in dist/ExpenseTracker
 
-## Build
+## How it looks
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![Screen Recording 2021-02-04 at 00 22 56](https://user-images.githubusercontent.com/7752159/107423074-d199cb80-6b13-11eb-8ac3-19788bb1907c.gif)
