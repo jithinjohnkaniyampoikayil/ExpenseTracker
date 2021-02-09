@@ -7,6 +7,9 @@ highcharts 8.1.0 <br />
 
 ## Demo
 
+username : admin<br />
+password : admin<br />
+
 https://mango-beach-0e833b103.azurestaticapps.net/
 
 ## Output Folder
