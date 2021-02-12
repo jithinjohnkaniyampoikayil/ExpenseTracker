@@ -1,9 +1,9 @@
 {
-  "name": "dashboard",
+  "name": "expensetracker",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "prebuild": "npm version patch",
+    "prebuild": "npm --no-git-tag-version version patch",
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
