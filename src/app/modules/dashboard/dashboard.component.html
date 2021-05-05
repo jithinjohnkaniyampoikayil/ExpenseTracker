@@ -1,9 +1,7 @@
-<app-widget-area
-  *ngIf="expenses"
-  [currency]="currency"
-  [expenses]="expenses"
-></app-widget-area>
-<mat-divider></mat-divider>
-<app-bar *ngIf="expenses" [currency]="currency" [expenses]="expenses"></app-bar>
-<mat-divider></mat-divider>
-<app-donut *ngIf="expenses" [expenses]="expenses"></app-donut>
+<div *ngFor="let item of components">
+  <dynamic-resolver
+    *ngIf="item.expenses.length > 0"
+    [components]="item"
+  ></dynamic-resolver>
+  <mat-divider></mat-divider>
+</div>
