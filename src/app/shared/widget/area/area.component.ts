@@ -7,8 +7,7 @@ import HC_exporting from 'highcharts/modules/exporting';
   styleUrls: ['./area.component.scss'],
 })
 export class AreaComponent implements OnInit {
-  @Input() expenses;
-  @Input() currency;
+  @Input() data;
   highcharts = Highcharts;
   chartOptions: any;
   constructor() {}
@@ -25,7 +24,10 @@ export class AreaComponent implements OnInit {
         text: 'Source: csv',
       },
       xAxis: {
-        categories: this.expenses.map((x) => x.category),
+        categories:
+          this.data.expenses.length > 0
+            ? this.data.expenses.map((x) => x.category)
+            : [],
         tickmarkPlacement: 'on',
         title: {
           enabled: false,
@@ -33,7 +35,7 @@ export class AreaComponent implements OnInit {
       },
       yAxis: {
         title: {
-          text: this.currency,
+          text: this.data.currency,
         },
         labels: {
           formatter: function () {
@@ -43,7 +45,7 @@ export class AreaComponent implements OnInit {
       },
       tooltip: {
         split: true,
-        valueSuffix: this.currency,
+        valueSuffix: this.data.currency,
       },
       plotOptions: {
         area: {
@@ -61,7 +63,7 @@ export class AreaComponent implements OnInit {
       series: [
         {
           name: '2021',
-          data: this.expenses.map((x) => x.amount),
+          data: this.data.expenses.map((x) => x.amount),
         },
       ],
     };

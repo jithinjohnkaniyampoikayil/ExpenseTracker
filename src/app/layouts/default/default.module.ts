@@ -14,8 +14,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
+import { DynamicResolverComponent } from 'src/app/helpers/dynamic-resolver.component';
+import { DynamicLoaderDirective } from 'src/app/helpers/dynamic-loader.directive';
 @NgModule({
-  declarations: [DefaultComponent, DashboardComponent, ExpenditureComponent],
+  declarations: [
+    DefaultComponent,
+    DashboardComponent,
+    ExpenditureComponent,
+    DynamicResolverComponent,
+    DynamicLoaderDirective,
+  ],
   imports: [
     CommonModule,
     RouterModule,

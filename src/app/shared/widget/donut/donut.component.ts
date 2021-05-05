@@ -8,19 +8,19 @@ import { Expense } from 'src/app/models/expense';
   styleUrls: ['./donut.component.scss'],
 })
 export class DonutComponent implements OnInit {
-  @Input() expenses: Expense[];
+  @Input() data;
   highcharts = Highcharts;
   chartOptions: any;
-  data: any = [];
+  _data: any = [];
   constructor() {}
 
   ngOnInit(): void {
-    this.expenses.forEach((element, index) => {
+    this.data.expenses.forEach((element, index) => {
       let arr = [];
       arr.push(element.category, element.amount);
-      this.data.push(arr);
+      this._data.push(arr);
     });
-    this.data.shift();
+    this._data.shift();
     this.chartOptions = {
       chart: {
         plotBorderWidth: null,
@@ -44,7 +44,7 @@ export class DonutComponent implements OnInit {
         {
           type: 'pie',
           name: 'Browser share',
-          data: this.data,
+          data: this._data,
         },
       ],
     };

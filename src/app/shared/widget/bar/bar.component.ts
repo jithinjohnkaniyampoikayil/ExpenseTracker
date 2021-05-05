@@ -13,8 +13,7 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./bar.component.scss'],
 })
 export class BarComponent implements OnInit {
-  @Input() expenses;
-  @Input() currency;
+  @Input() data;
   highcharts = Highcharts;
   chartOptions: any;
   constructor() {}
@@ -42,7 +41,7 @@ export class BarComponent implements OnInit {
         shadow: true,
       },
       xAxis: {
-        categories: this.expenses.map((x) => x.category),
+        categories: this.data.expenses.map((x) => x.category),
         title: {
           text: null,
         },
@@ -50,7 +49,7 @@ export class BarComponent implements OnInit {
       yAxis: {
         min: 0,
         title: {
-          text: this.currency,
+          text: this.data.currency,
           align: 'high',
         },
         labels: {
@@ -58,7 +57,7 @@ export class BarComponent implements OnInit {
         },
       },
       tooltip: {
-        valueSuffix: this.currency,
+        valueSuffix: this.data.currency,
       },
       plotOptions: {
         bar: {
@@ -73,7 +72,7 @@ export class BarComponent implements OnInit {
       series: [
         {
           name: 'Year 2021',
-          data: this.expenses.map((x) => x.amount),
+          data: this.data.expenses.map((x) => x.amount),
         },
       ],
     };
