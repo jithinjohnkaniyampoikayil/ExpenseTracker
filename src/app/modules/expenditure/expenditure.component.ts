@@ -22,13 +22,19 @@ export class ExpenditureComponent implements OnInit, AfterViewInit {
   groupedExpensesDataSource: any;
   fullExpensesDataSource: any;
   currencySymbol: String = '€';
+  selectedYear = '2020';
 
   constructor(private expenseService: ExpenseService) {}
 
   ngOnInit(): void {
+    this.expenseService.getExpense().subscribe((data) => {
+      if (data.length == 0) {
+        this.expenseService.setExpense(parseInt(this.selectedYear));
+      }
+    });
     combineLatest([
-      this.expenseService.expense,
-      this.expenseService.groupedExpense,
+      this.expenseService.getExpense(),
+      this.expenseService.getGroupedExpense(),
     ]).subscribe(([first, second]) => {
       this.groupedExpensesDataSource = new MatTableDataSource(second);
       this.fullExpensesDataSource = new MatTableDataSource(first);

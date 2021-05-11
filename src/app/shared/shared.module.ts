@@ -15,12 +15,14 @@ import { AreaComponent } from './widget/area/area.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { BarComponent } from './widget/bar/bar.component';
 import { DonutComponent } from './widget/donut/donut.component';
+import { AreaStackedComponent } from './widget/area-stacked/area-stacked.component';
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
     AreaComponent,
+    AreaStackedComponent,
     BarComponent,
     DonutComponent,
   ],
@@ -41,6 +43,7 @@ import { DonutComponent } from './widget/donut/donut.component';
     FooterComponent,
     SidebarComponent,
     AreaComponent,
+    AreaStackedComponent,
     BarComponent,
     DonutComponent,
   ],

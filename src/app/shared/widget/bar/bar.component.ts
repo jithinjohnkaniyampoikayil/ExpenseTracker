@@ -71,7 +71,7 @@ export class BarComponent implements OnInit {
       },
       series: [
         {
-          name: 'Year 2021',
+          name: 'All Year',
           data: this.data.expenses.map((x) => x.amount),
         },
       ],

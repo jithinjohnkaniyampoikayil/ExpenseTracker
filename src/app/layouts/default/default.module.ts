@@ -16,6 +16,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { DynamicResolverComponent } from 'src/app/helpers/dynamic-resolver.component';
 import { DynamicLoaderDirective } from 'src/app/helpers/dynamic-loader.directive';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -37,6 +39,8 @@ import { DynamicLoaderDirective } from 'src/app/helpers/dynamic-loader.directive
     MatInputModule,
     MatPaginatorModule,
     MatTabsModule,
+    MatOptionModule,
+    MatSelectModule,
   ],
   exports: [],
 })
