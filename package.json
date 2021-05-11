@@ -1,6 +1,6 @@
 {
   "name": "expensetracker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "ng": "ng",
     "prebuild": "npm --no-git-tag-version version patch",

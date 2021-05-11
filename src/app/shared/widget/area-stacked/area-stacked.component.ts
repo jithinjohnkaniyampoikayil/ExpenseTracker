@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import HC_exporting from 'highcharts/modules/exporting';
 @Component({
-  selector: 'app-widget-area',
-  templateUrl: './area.component.html',
-  styleUrls: ['./area.component.scss'],
+  selector: 'app-widget-area-stacked',
+  templateUrl: './area-stacked.component.html',
+  styleUrls: ['./area-stacked.component.scss'],
 })
-export class AreaComponent implements OnInit {
+export class AreaStackedComponent implements OnInit {
   @Input() data;
   highcharts = Highcharts;
   chartOptions: any;
@@ -24,10 +24,20 @@ export class AreaComponent implements OnInit {
         text: 'Source: csv',
       },
       xAxis: {
-        categories:
-          this.data.expenses.length > 0
-            ? this.data.expenses.map((x) => x.category)
-            : [],
+        categories: [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+          'July',
+          'August',
+          'September',
+          'October',
+          'November',
+          'December',
+        ],
         tickmarkPlacement: 'on',
         title: {
           enabled: false,
@@ -60,12 +70,7 @@ export class AreaComponent implements OnInit {
       },
       exporting: { enabled: true },
       credits: { enabled: false },
-      series: [
-        {
-          name: 'All Years',
-          data: this.data.expenses.map((x) => x.amount),
-        },
-      ],
+      series: this.data.expenses,
     };
     HC_exporting(Highcharts);
     setTimeout(() => {

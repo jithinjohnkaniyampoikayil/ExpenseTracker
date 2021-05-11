@@ -11,24 +11,17 @@ import { ExpenseService } from '../../services/expense.service';
 export class DashboardComponent implements OnInit {
   currency: string = 'Euro';
   components: DynamicLoader[];
-  constructor(
-    private expenseService: ExpenseService,
-    private componentLoaderService: ComponentLoaderService
-  ) {
-    this.loadData();
-  }
-
-  loadData() {}
+  selected = '2020';
+  constructor(private componentLoaderService: ComponentLoaderService) {}
 
   ngOnInit(): void {
-    this.components = this.componentLoaderService.getComponents();
-    this.expenseService.groupedExpense.subscribe((data) => {
-      for (let items of this.components) {
-        if (data.length > 0) {
-          items.expenses = data;
-          items.currency = this.currency;
-        }
-      }
+    this.componentLoaderService.getDashboardComponents(parseInt(this.selected));
+    this.componentLoaderService.dynamicComponents.subscribe((data) => {
+      this.components = data;
     });
+  }
+
+  yearChange() {
+    this.componentLoaderService.getYearlyData(parseInt(this.selected));
   }
 }
