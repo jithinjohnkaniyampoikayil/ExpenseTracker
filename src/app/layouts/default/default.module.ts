@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DefaultComponent } from './default.component';
 import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
@@ -18,6 +18,7 @@ import { DynamicResolverComponent } from 'src/app/helpers/dynamic-resolver.compo
 import { DynamicLoaderDirective } from 'src/app/helpers/dynamic-loader.directive';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { ExpenseService } from 'src/app/services/expense.service';
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -43,5 +44,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
   ],
   exports: [],
+  providers: [],
 })
 export class DefaultModule {}
