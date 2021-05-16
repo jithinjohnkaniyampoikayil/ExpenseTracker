@@ -8,6 +8,7 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { combineLatest, Subject } from 'rxjs';
+import { Defaults } from 'src/app/models/defaults';
 import { ExpenseService } from 'src/app/services/expense.service';
 @Component({
   selector: 'app-expenditure',
@@ -21,20 +22,13 @@ export class ExpenditureComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['date', 'category', 'description', 'amount'];
   groupedExpensesDataSource: any;
   fullExpensesDataSource: any;
-  currencySymbol: String = '€';
-  selectedYear = '2020';
-
+  currencySymbol: string = Defaults.currency;
   constructor(private expenseService: ExpenseService) {}
 
   ngOnInit(): void {
-    this.expenseService.getExpense().subscribe((data) => {
-      if (data.length == 0) {
-        this.expenseService.setExpense(parseInt(this.selectedYear));
-      }
-    });
     combineLatest([
-      this.expenseService.getExpense(),
-      this.expenseService.getGroupedExpense(),
+      this.expenseService.expense,
+      this.expenseService.groupedExpense,
     ]).subscribe(([first, second]) => {
       this.groupedExpensesDataSource = new MatTableDataSource(second);
       this.fullExpensesDataSource = new MatTableDataSource(first);

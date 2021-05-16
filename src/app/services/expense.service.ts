@@ -28,9 +28,6 @@ export class ExpenseService {
   ];
   constructor(private http: HttpClient) {}
 
-  getExpense() {
-    return this.expense.asObservable();
-  }
   setExpense(year: number) {
     this.http
       .get('assets/expense.csv', { responseType: 'text' })
@@ -57,9 +54,6 @@ export class ExpenseService {
       });
   }
 
-  getGroupedExpense() {
-    return this.groupedExpense.asObservable();
-  }
   setGroupedExpense() {
     var helper = {};
     this.groupedExpense.next(
@@ -77,9 +71,7 @@ export class ExpenseService {
       }, [])
     );
   }
-  getCategorizedExpense() {
-    return this.categorizedExpense.asObservable();
-  }
+
   setCategorizedExpense(year: number) {
     var response = {};
     this.fetchedExpense.forEach((d: any) => {
